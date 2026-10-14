@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+
+  <title>Minha Empresa | Site Oficial</title>
+
+  <meta name="description"
+        content="Conheça nossa empresa, nossos serviços e entre em contato com nossa equipe.">
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --dark: #101827;
+      --light: #f5f7fb;
+      --text: #253047;
+      --muted: #667085;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #60a5fa;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    nav a {
+      font-size: 14px;
+      color: #e5e7eb;
+      transition: color .2s;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 13px 22px;
+      border-radius: 9px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      background:
+        radial-gradient(ellipse at 80% 20%, #234477 0, transparent 45%),
+        linear-gradient(135deg, #101827, #182d4d);
+      color: white;
+      padding: 110px 0;
+    }
+
+    .hero-content {
+      max-width: 720px;
+    }
+
+    .tag {
+      display: inline-block;
+      border: 1px solid #57749d;
+      background: #ffffff10;
+      padding: 7px 13px;
+      border-radius: 50px;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #d0d9e8;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .section {
+      padding: 85px 0;
+    }
+
+    .section-light {
+      background: var(--light);
+    }
+
+    .section-heading {
+      max-width: 650px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(29px, 4vw, 42px);
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e7eaf0;
+      padding: 30px;
+      border-radius: 16px;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #10182712;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      background: #eaf1ff;
+      border-radius: 12px;
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      color: var(--dark);
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-panel {
+      min-height: 320px;
+      padding: 35px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #172b49, #2563eb);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+
+    .about-panel h3 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .about-text h2 {
+      font-size: 36px;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .contact-box {
+      background: var(--dark);
+      color: white;
+      border-radius: 22px;
+      padding: 55px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(27px, 4vw, 38px);
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: #cbd5e1;
+      max-width: 550px;
+    }
+
+    .contact-box .btn {
+      background: #22c55e;
+      color: #062b16;
+      white-space: nowrap;
+    }
+
+    footer {
+      background: #0b1120;
+      color: #aab5c7;
+      padding: 30px 0;
+      font-size: 14px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .whatsapp {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      font-size: 27px;
+      box-shadow: 0 5px 20px #0003;
+      z-index: 99;
+    }
+
+    @media (max-width: 760px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 75px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .cards,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .contact-box {
+        padding: 32px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="#inicio">MINHA<span>EMPRESA</span></a>
+
+      <nav aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Soluções</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <span class="tag">Bem-vindo ao nosso site</span>
+
+        <h1>
+          Soluções para você e seu negócio
+          <span>com qualidade.</span>
+        </h1>
+
+        <p>
+          Conheça nossa empresa, descubra nossas soluções
+          e fale com nossa equipe para encontrar o que você precisa.
+        </p>
+
+        <a class="btn" href="#contato">Entre em contato →</a>
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Como podemos ajudar?</h2>
+          <p>
+            Conheça nossas soluções e encontre a opção ideal para
+            suas necessidades.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">✦</div>
+            <h3>Qualidade</h3>
+            <p>
+              Nosso objetivo é oferecer uma experiência positiva
+              em cada atendimento.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">◎</div>
+            <h3>Atendimento</h3>
+            <p>
+              Entre em contato para esclarecer dúvidas e conhecer
+              as opções disponíveis.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">↗</div>
+            <h3>Compromisso</h3>
+            <p>
+              Buscamos entender suas necessidades para orientar
+              você da melhor maneira possível.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light" id="sobre">
+      <div class="container about-grid">
+        <div class="about-panel">
+          <h3>Nossa empresa</h3>
+          <p>
+            Um espaço para apresentar nossa história,
+            nossos valores e o que torna nosso negócio especial.
+          </p>
+        </div>
+
+        <div class="about-text">
+          <h2>Conheça quem somos</h2>
+          <p>
+            Trabalhamos para oferecer soluções alinhadas às
+            necessidades dos nossos clientes.
+          </p>
+          <p>
+            Aqui você poderá conhecer nossa trajetória,
+            nossos diferenciais e as informações institucionais
+            da empresa.
+          </p>
+          <a class="btn" href="#contato">Fale conosco</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>Vamos conversar?</h2>
+            <p>
+              Entre em contato para saber mais sobre nossos
+              produtos, serviços e formas de atendimento.
+            </p>
+          </div>
+
+          <!-- Substitua pelo WhatsApp real da empresa.
+               Use DDI + DDD + número, somente dígitos. -->
+          <a
+            class="btn"
+            href="https://wa.me/5500000000000"
+            target="_blank"
+            rel="noopener noreferrer">
+            Conversar no WhatsApp →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <p>© <span id="ano"></span> Minha Empresa. Todos os direitos reservados.</p>
+      <p>Site oficial da empresa.</p>
+    </div>
+  </footer>
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/5500000000000"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Entre em contato pelo WhatsApp">
+    ☎
+  </a>
+
+  <script>
+    document.getElementById("ano").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
